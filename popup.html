@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        width: 200px;
+        font-size: 16px;
+        font-family: helvetica;
+        font-weight: lighter;
+        color: white;
+        background-color: rgba(51, 54, 57, 1);
+      }
+
+      button {
+        display: block;
+        height: 30px;
+        width: 100%;
+        margin-bottom: 5px;
+        font-size: 16px;
+        font-weight: lighter;
+        outline: none;
+        border-radius: 6px;
+        border-width: 0;
+        background: rgb(102, 153, 204);
+        transition: background ease-in-out 250ms;
+        transition: color ease-in-out 250ms;
+      }
+
+      button:hover {
+        cursor: pointer;
+        color: white;
+        background: rgb(102, 153, 204);
+        transition: background ease-in-out 250ms;
+        transition: color ease-in-out 250ms;
+      }
+
+      h2 {
+        font-size: 18px;
+        font-weight: normal;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: normal;
+      }
+
+      input {
+        width: 90%;
+        padding: 5px;
+        margin-bottom: 10px;
+        font-size: 16px;
+        color: white;
+        border-radius: 6px;
+        border-width: 0;
+        background-color: rgba(32, 33, 36, 1);
+      }
+
+      input:focus {
+        outline: none;
+      }
+
+      input[type=number]::-webkit-inner-spin-button,
+      input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Your Saved Breakpoints</h2>
+    <div id="breakpointData"></div>
+    <label for="breakpoints">Add a Breakpoint</label>
+    <input type="number" id="breakpoints" name="breakpoints">
+    <button id="addBreakpoint">Add Breakpoint</button>
+    <button id="clearBreakpoints">Remove Breakpoints</button>
+    <button id="adjustWindowSize">Update Window</button>
+    <code id="imageData"></code>
+    <script src="popup.js"></script>
+  </body>
+</html>
