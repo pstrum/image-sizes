@@ -3,7 +3,6 @@ const addBreakpoint = document.getElementById('addBreakpoint');
 const clearBreakpoints = document.getElementById('clearBreakpoints');
 const adjustWindowSize = document.getElementById('adjustWindowSize');
 const imageDataSection = document.getElementById('imageData');
-const images = document.getElementsByTagName('img');
 let breakpoints = null;
 let currentWindowSize = null;
 let imageData = null;
@@ -38,16 +37,22 @@ clearBreakpoints.onclick = function(element) {
 }
 
 adjustWindowSize.onclick = function(element) {
+  getImages();
   chrome.windows.getCurrent(function(win) {
     if (!currentWindowSize) {
       currentWindowSize = win.width;
     }
 
-    if (breakpoints.length) {
-      updateWindow(win, breakpoints);
-    }
+    // if (breakpoints.length) {
+    //   updateWindow(win, breakpoints);
+    // }
   });
 }
+
+const getImageData = function(info) {
+  imageData = info.images;
+  imageDataSection.innerHTML = `<code>${imageData}</code>`;
+};
 
 function updateWindow(win, breakpoints, current = 0) {
   chrome.windows.update(win.id, {width: Number(breakpoints[current])}, function(win) {
@@ -58,6 +63,38 @@ function updateWindow(win, breakpoints, current = 0) {
       chrome.windows.update(win.id, {width: currentWindowSize});
     }
   });
+}
+
+function getImages() {
+  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+    chrome.tabs.executeScript(
+      tabs[0].id,
+      {file: 'content.js'},
+      function() {
+        const breakpointNumbers = breakpoints.map(function(breakpoint) {
+          return Number(breakpoint);
+        });
+        chrome.tabs.sendMessage(
+          tabs[0].id,
+          {from: 'popup', subject: 'imageData', breakpoints: breakpointNumbers},
+          getImageData
+        );
+      }
+    );
+  });
+
+  // assign the listener function to a variable so we can remove it later
+  chrome.runtime.onMessage.addListener(
+    function(request, sender, sendResponse) {
+      console.log(sender.tab ?
+        "from a content script:" + sender.tab.url :
+        "from the extension"
+      );
+      if (request.greeting == "hello") {
+        sendResponse({farewell: "goodbye"});
+      }
+    }
+  );
 }
 
 function arrayToHtml(arr) {

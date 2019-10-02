@@ -8,11 +8,7 @@
     "scripts": ["background.js"],
     "persistent": false
   },
-  "content_scripts": [{
-    "matches": ["http://*/*"],
-    "js": ["content_script.js"]
-  }],
-  "permissions": ["declarativeContent", "storage"],
+  "permissions": ["activeTab", "declarativeContent", "storage"],
   "page_action": {
     "default_popup": "popup.html",
     "default_icon": {
