@@ -1,35 +1,26 @@
-chrome.runtime.sendMessage({greeting: "hello"}, function(response) {
-  console.log(response.farewell);
-});
-
-chrome.runtime.onMessage.addListener((msg, sender, response) => {
-  if ((msg.from == 'popup') && (msg.subject == 'imageData')) {
-    const imageData = calculateImageData(msg.breakpoints);
-    response(imageData);
+const port = chrome.runtime.connect();
+const images = document.querySelectorAll('img');
+const imageSizes = calculateImageData(images);
+port.postMessage({connectionSuccessful: true});
+port.onMessage.addListener(msg => {
+  const images = document.querySelectorAll('img');
+  if (msg.from == 'popup') {
+    switch(msg.subject) {
+      case 'getImageData':
+        const imageData = calculateImageData(images);
+        console.log(imageData);
+        port.postMessage({imageData: true, images: imageData});
+    }
   }
 });
 
-function calculateImageData(breakpoints) {
-  const height = window.innerHeight;
-  let images = [];
-
-  breakpoints.forEach(function(breakpoint) {
-    window.resizeTo(breakpoint, height);
-    let htmlImgs = document.querySelectorAll('img');
-    htmlImgs.forEach(function(htmlImg) {
-      images.forEach(function(img) {
-        if (img.src == htmlImg.src) {
-          img.width.push(htmlImg.offsetWidth);
-        } else if (images.length == 0) {
-          images.push({
-            src: img.src,
-            width: [img.offsetWidth]
-          });
-        }
-      });
+function calculateImageData(images) {
+  let imageSrcAndWidths = [];
+  images.forEach(image => {
+    imageSrcAndWidths.push({
+      src: image.src,
+      width: [image.offsetWidth]
     });
   });
-
-  console.log(images);
-  return images;
+  return imageSrcAndWidths;
 }

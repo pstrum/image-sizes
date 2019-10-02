@@ -3,9 +3,13 @@ const addBreakpoint = document.getElementById('addBreakpoint');
 const clearBreakpoints = document.getElementById('clearBreakpoints');
 const adjustWindowSize = document.getElementById('adjustWindowSize');
 const imageDataSection = document.getElementById('imageData');
+let port = null;
+let currentUrl = null;
 let breakpoints = null;
 let currentWindowSize = null;
-let imageData = null;
+let imageData = [];
+let currentBreak = 0;
+let currentWindow = null;
 
 chrome.storage.sync.get('breakpoints', function(data) {
   const nobreakpoints = Object.entries(data).length === 0 && data.constructor === Object;
@@ -15,6 +19,23 @@ chrome.storage.sync.get('breakpoints', function(data) {
     breakpointData.innerHTML = arrayToHtml(data.breakpoints);
     breakpoints = data.breakpoints;
   }
+});
+
+chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+  chrome.tabs.executeScript(
+    tabs[0].id,
+    {file: 'content.js', runAt: 'document_end'},
+    function() { console.log('script injected'); }
+  );
+});
+
+chrome.runtime.onConnect.addListener(function(connection) {
+  port = connection;
+  connection.onMessage.addListener(function(msg) {
+    if (msg.imageData) {
+      updateImageData(msg.images);
+    }
+  });
 });
 
 addBreakpoint.onclick = function(element) {
@@ -37,31 +58,79 @@ clearBreakpoints.onclick = function(element) {
 }
 
 adjustWindowSize.onclick = function(element) {
-  getImages();
+  imageData = [];
   chrome.windows.getCurrent(function(win) {
+    currentWindow = win;
     if (!currentWindowSize) {
       currentWindowSize = win.width;
     }
 
-    // if (breakpoints.length) {
-    //   updateWindow(win, breakpoints);
-    // }
+    if (breakpoints.length) {
+      updateWindow();
+    }
   });
 }
 
-const getImageData = function(info) {
-  imageData = info.images;
-  imageDataSection.innerHTML = `<code>${imageData}</code>`;
+const updateImageData = function(images) {
+  if (!imageData.length) {
+    images.forEach(image => {
+      if (image.src != '') {
+        imageData.push(image);
+      }
+    })
+  } else {
+    images.forEach(newImage => {
+      imageData.forEach(image => {
+        if (newImage.src != '') {
+          if (newImage.src == image.src) {
+            image.width.push(newImage.width[0]);
+          }
+        }
+      });
+    });
+  }
+
+  currentBreak += 1;
+  if (breakpoints[currentBreak]) {
+    console.log('updating window');
+    updateWindow();
+  } else {
+    chrome.windows.update(currentWindow.id, {width: currentWindowSize});
+    currentBreak = 0;
+    getImageData();
+  }
+}
+
+const getImageData = function() {
+  let dataHtml = '<ul>';
+  imageData.forEach(image => {
+    dataHtml += `<li style="display: flex; align-items: center;"><img src="${image.src}" style="max-width: 50px; margin-right: 10px;"><code>${image.width}</code></li>`;
+  });
+  dataHtml += '</ul>';
+  imageDataSection.innerHTML = dataHtml;
 };
 
-function updateWindow(win, breakpoints, current = 0) {
-  chrome.windows.update(win.id, {width: Number(breakpoints[current])}, function(win) {
-    const next = current + 1;
-    if (breakpoints[next]) {
-      updateWindow(win, breakpoints, next);
-    } else {
-      chrome.windows.update(win.id, {width: currentWindowSize});
-    }
+function openNewWindow() {
+  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+    currentUrl = tabs[0].url;
+    chrome.windows.create({url: currentUrl, focused: true}, function(win) {
+      getImages(win);
+    });
+  });
+}
+
+function updateWindow() {
+  chrome.windows.update(currentWindow.id, {width: Number(breakpoints[currentBreak])}, function(win) {
+    port.postMessage({from: 'popup', subject: 'getImageData'});
+  });
+}
+
+function getNewImages() {
+  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+    chrome.tabs.sendMessage(
+      tabs[0].id,
+      {from: 'popup', subject: 'getImageData'}
+    );
   });
 }
 
@@ -69,32 +138,11 @@ function getImages() {
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     chrome.tabs.executeScript(
       tabs[0].id,
-      {file: 'content.js'},
+      {file: 'content.js', runAt: 'document_end'},
       function() {
-        const breakpointNumbers = breakpoints.map(function(breakpoint) {
-          return Number(breakpoint);
-        });
-        chrome.tabs.sendMessage(
-          tabs[0].id,
-          {from: 'popup', subject: 'imageData', breakpoints: breakpointNumbers},
-          getImageData
-        );
       }
     );
   });
-
-  // assign the listener function to a variable so we can remove it later
-  chrome.runtime.onMessage.addListener(
-    function(request, sender, sendResponse) {
-      console.log(sender.tab ?
-        "from a content script:" + sender.tab.url :
-        "from the extension"
-      );
-      if (request.greeting == "hello") {
-        sendResponse({farewell: "goodbye"});
-      }
-    }
-  );
 }
 
 function arrayToHtml(arr) {
