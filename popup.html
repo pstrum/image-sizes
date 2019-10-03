@@ -65,6 +65,42 @@
         -webkit-appearance: none;
         margin: 0;
       }
+
+      .results {
+        padding-left: 0;
+      }
+
+      .results li {
+        display: flex;
+        align-items: flex-start;
+      }
+
+      .results img {
+        max-width: 50px;
+        margin-right: 10px;
+      }
+
+      .results dd {
+        padding: 5px;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 6px;
+      }
+
+      .results dl {
+        margin: 0;
+      }
+
+      .results dt {
+        margin-bottom: 12px;
+        font-family: 'helvetica';
+        font-weight: 400;
+      }
+
+      .results dd {
+        display: inline-block;
+        margin-left: 0;
+        margin-bottom: 16px;
+      }
     </style>
   </head>
   <body>
@@ -74,7 +110,7 @@
     <input type="number" id="breakpoints" name="breakpoints">
     <button id="addBreakpoint">Add Breakpoint</button>
     <button id="clearBreakpoints">Remove Breakpoints</button>
-    <button id="adjustWindowSize">Update Window</button>
+    <button id="adjustWindowSize">Calculate Sizes</button>
     <code id="imageData"></code>
     <script src="popup.js"></script>
   </body>

@@ -6,36 +6,23 @@ const imageDataSection = document.getElementById('imageData');
 let port = null;
 let currentUrl = null;
 let breakpoints = null;
-let currentWindowSize = null;
 let imageData = [];
 let currentBreak = 0;
 let currentWindow = null;
+let windowId = null;
 
+// BREAKPOINTS STUFF //
+// ================= //
 chrome.storage.sync.get('breakpoints', function(data) {
   const nobreakpoints = Object.entries(data).length === 0 && data.constructor === Object;
   if (nobreakpoints) {
     breakpointData.innerHTML = '<p style="font-style: italic;">no breakpoints</p>';
   } else {
     breakpointData.innerHTML = arrayToHtml(data.breakpoints);
+
+    // Set stored breakpoints to variable
     breakpoints = data.breakpoints;
   }
-});
-
-chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-  chrome.tabs.executeScript(
-    tabs[0].id,
-    {file: 'content.js', runAt: 'document_end'},
-    function() { console.log('script injected'); }
-  );
-});
-
-chrome.runtime.onConnect.addListener(function(connection) {
-  port = connection;
-  connection.onMessage.addListener(function(msg) {
-    if (msg.imageData) {
-      updateImageData(msg.images);
-    }
-  });
 });
 
 addBreakpoint.onclick = function(element) {
@@ -57,19 +44,79 @@ clearBreakpoints.onclick = function(element) {
   breakpointData.innerHTML = '<p>no breakpoints</p>';
 }
 
-adjustWindowSize.onclick = function(element) {
-  imageData = [];
-  chrome.windows.getCurrent(function(win) {
-    currentWindow = win;
-    if (!currentWindowSize) {
-      currentWindowSize = win.width;
-    }
+function arrayToHtml(arr) {
+  let html = '<ul>';
+  arr.map(function(item) {
+    html += '<li>' + item + 'px</li>';
+  });
+  html += '</ul>';
 
-    if (breakpoints.length) {
-      updateWindow();
+  return html;
+}
+
+
+// IMAGE WIDTHS STUFF //
+// ================== //
+
+chrome.webNavigation.onCompleted.addListener(function(details) {
+  if (details.url == currentUrl && details.frameId == 0) {
+    injectScript(currentWindow);
+  }
+});
+
+chrome.runtime.onConnect.addListener(function(connection) {
+  port = connection;
+  connection.onMessage.addListener(function(msg) {
+    if (msg.imageData) {
+      updateImageData(msg.images);
+    }
+    if (msg.imagesLoaded) {
+      console.log('images loaded!');
+      imageData = [];
+      chrome.windows.get(currentWindow.id, {windowTypes: ['popup']}, function(win) {
+        currentWindow = win;
+        if (breakpoints.length) {
+          updateWindow();
+        }
+      });
     }
   });
+});
+
+// Open a popup and inject the content script
+adjustWindowSize.onclick = element => {
+  chrome.tabs.query({active: true, currentWindow: true}, openPopup);
 }
+
+const openPopup = tabs => {
+  windowId = tabs[0].windowId;
+  currentUrl = tabs[0].url;
+  chrome.windows.create({url: currentUrl, top: 0, left: 0, focused: false, type: 'popup', width: Number(breakpoints[0])}, win => currentWindow = win);
+};
+
+const injectScript = win => {
+  chrome.tabs.executeScript(
+    win.tabs[0].id,
+    {file: 'content.js', runAt: 'document_end'},
+    function() {
+      console.log('script injected');
+      console.log('now inject imagesLoaded');
+      injectImagesLoaded(win.tabs[0].id);
+    }
+  );
+}
+
+const injectImagesLoaded = tab => {
+  chrome.tabs.executeScript(
+    tab,
+    {file: 'imagesLoadedPkg.js', runAt: 'document_end'},
+    function() {
+      console.log('imagesLoaded injected');
+      console.log('now check for imagesLoaded...');
+      port.postMessage({from: 'popup', subject: 'check images'});
+    }
+  );
+};
 
 const updateImageData = function(images) {
   if (!imageData.length) {
@@ -92,31 +139,42 @@ const updateImageData = function(images) {
 
   currentBreak += 1;
   if (breakpoints[currentBreak]) {
-    console.log('updating window');
     updateWindow();
   } else {
-    chrome.windows.update(currentWindow.id, {width: currentWindowSize});
     currentBreak = 0;
     getImageData();
   }
 }
 
 const getImageData = function() {
-  let dataHtml = '<ul>';
+  let dataHtml = '<ul class="results">';
   imageData.forEach(image => {
-    dataHtml += `<li style="display: flex; align-items: center;"><img src="${image.src}" style="max-width: 50px; margin-right: 10px;"><code>${image.width}</code></li>`;
+    const sizes = getImageSizes(image.width);
+    const srcset = whittleDown(image.width);
+    dataHtml += `<li>
+                   <img src="${image.src}">
+                   <dl>
+                     <dt>srcset value</dt>
+                     <dd><code>${srcset}</code></dd>
+                     <dt>sizes value</dt>
+                     <dd>${sizes}</dd>
+                   </dl>
+                 </li>`;
   });
   dataHtml += '</ul>';
   imageDataSection.innerHTML = dataHtml;
 };
 
-function openNewWindow() {
-  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-    currentUrl = tabs[0].url;
-    chrome.windows.create({url: currentUrl, focused: true}, function(win) {
-      getImages(win);
-    });
+const getImageSizes = function(widths) {
+  let returnString = '';
+  widths.forEach((width, index) => {
+    const breakpoint = Number(breakpoints[index]);
+    const em = breakpoint / 16;
+    const vw = Math.round((width / breakpoint) * 100);
+    const comma = index == widths.length - 1 ? '' : ', ';
+    returnString += `(max-width: ${em}em) ${vw}${comma}`;
   });
+  return returnString;
 }
 
 function updateWindow() {
@@ -125,32 +183,25 @@ function updateWindow() {
   });
 }
 
-function getNewImages() {
-  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-    chrome.tabs.sendMessage(
-      tabs[0].id,
-      {from: 'popup', subject: 'getImageData'}
-    );
+function whittleDown(imageWidths) {
+  const sizeGap = 50;
+  let addRetina = [];
+  imageWidths.forEach(imageWidth => {
+    addRetina.push(imageWidth);
+    addRetina.push(imageWidth * 2);
   });
-}
+  const sortedImageSizes = addRetina.sort((a, b) => b - a);
+  const lastSortedImageIndex = sortedImageSizes.length - 1;
+  let lastFilteredSize = sortedImageSizes[0];
 
-function getImages() {
-  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-    chrome.tabs.executeScript(
-      tabs[0].id,
-      {file: 'content.js', runAt: 'document_end'},
-      function() {
-      }
-    );
+  return sortedImageSizes.filter((current, index) => {
+    if (index == 0) {
+      return current;
+    } else if (Math.abs(current - lastFilteredSize) > sizeGap) {
+      lastFilteredSize = current;
+      return current;
+    } else if (index == lastSortedImageIndex && Math.abs(current - lastFilteredSize) > 20) {
+      return current;
+    }
   });
-}
-
-function arrayToHtml(arr) {
-  let html = '<ul>';
-  arr.map(function(item) {
-    html += '<li>' + item + 'px</li>';
-  });
-  html += '</ul>';
-
-  return html;
 }
