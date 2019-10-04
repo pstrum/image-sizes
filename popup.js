@@ -1,6 +1,7 @@
 const breakpointData = document.getElementById('breakpointData');
 const addBreakpoint = document.getElementById('addBreakpoint');
 const clearBreakpoints = document.getElementById('clearBreakpoints');
+const clearPreviousResults = document.getElementById('clearResults');
 const adjustWindowSize = document.getElementById('adjustWindowSize');
 const imageDataSection = document.getElementById('imageData');
 let port = null;
@@ -34,23 +35,26 @@ addBreakpoint.onclick = function(element) {
       breakpoints.push(newValue);
     }
     breakpointData.innerHTML = arrayToHtml(breakpoints);
-    chrome.storage.sync.set({breakpoints: breakpoints}, function() {});
+    chrome.storage.sync.set({breakpoints: breakpoints});
   }
-};
+}
 
 clearBreakpoints.onclick = function(element) {
-  chrome.storage.sync.clear();
+  chrome.storage.sync.remove('breakpoints');
   breakpoints = null;
   breakpointData.innerHTML = '<p>no breakpoints</p>';
 }
 
+clearPreviousResults.onclick = function(element) {
+  chrome.storage.sync.remove('results');
+  imageData = null;
+  imageDataSection.innerHTML = '<p>no previous data</p>';
+}
+
 function arrayToHtml(arr) {
   let html = '<ul>';
-  arr.map(function(item) {
-    html += '<li>' + item + 'px</li>';
-  });
+  arr.map(item => html += '<li>' + item + 'px</li>');
   html += '</ul>';
-
   return html;
 }
 
@@ -58,29 +62,13 @@ function arrayToHtml(arr) {
 // IMAGE WIDTHS STUFF //
 // ================== //
 
-chrome.webNavigation.onCompleted.addListener(function(details) {
-  if (details.url == currentUrl && details.frameId == 0) {
-    injectScript(currentWindow);
+// Get previously calculated values, if there are any
+chrome.storage.sync.get('results', function(data) {
+  const noPreviousResults = Object.entries(data).length === 0 && data.constructor === Object;
+  if (!noPreviousResults) {
+    imageData = data.results;
+    getImageData();
   }
-});
-
-chrome.runtime.onConnect.addListener(function(connection) {
-  port = connection;
-  connection.onMessage.addListener(function(msg) {
-    if (msg.imageData) {
-      updateImageData(msg.images);
-    }
-    if (msg.imagesLoaded) {
-      console.log('images loaded!');
-      imageData = [];
-      chrome.windows.get(currentWindow.id, {windowTypes: ['popup']}, function(win) {
-        currentWindow = win;
-        if (breakpoints.length) {
-          updateWindow();
-        }
-      });
-    }
-  });
 });
 
 // Open a popup and inject the content script
@@ -88,52 +76,68 @@ adjustWindowSize.onclick = element => {
   chrome.tabs.query({active: true, currentWindow: true}, openPopup);
 }
 
-const openPopup = tabs => {
+// After the popup is created, inject content script with port to message with
+chrome.webNavigation.onCompleted.addListener(function(details) {
+  if (details.url == currentUrl && details.frameId == 0) {
+    creatPortListener(currentWindow);
+  }
+});
+
+// Watch for messages from the popup; if user continues start getting image data
+chrome.runtime.onConnect.addListener(function(connection) {
+  port = connection;
+  connection.onMessage.addListener(function(msg) {
+    if (msg.mainScriptInjected) {
+      showPopupInstructions(currentWindow);
+    }
+    if (msg.imageData) {
+      updateImageData(msg.images);
+    }
+    if (msg.userContinued) {
+      imageData = [];
+      if (breakpoints.length) {
+        updateWindow();
+      }
+    }
+  });
+});
+
+function openPopup(tabs) {
   windowId = tabs[0].windowId;
   currentUrl = tabs[0].url;
-  chrome.windows.create({url: currentUrl, top: 0, left: 0, focused: false, type: 'popup', width: Number(breakpoints[0])}, win => currentWindow = win);
-};
+  chrome.windows.create({
+    url: currentUrl,
+    top: 0,
+    left: 0,
+    focused: false,
+    type: 'popup',
+    width: Number(breakpoints[0])
+  }, win => currentWindow = win);
+}
 
-const injectScript = win => {
+function creatPortListener(win) {
   chrome.tabs.executeScript(
     win.tabs[0].id,
-    {file: 'content.js', runAt: 'document_end'},
-    function() {
-      console.log('script injected');
-      console.log('now inject imagesLoaded');
-      injectImagesLoaded(win.tabs[0].id);
-    }
+    {file: 'content.js', runAt: 'document_end'}
   );
 }
 
-const injectImagesLoaded = tab => {
+function showPopupInstructions(win) {
   chrome.tabs.executeScript(
-    tab,
-    {file: 'imagesLoadedPkg.js', runAt: 'document_end'},
-    function() {
-      console.log('imagesLoaded injected');
-      console.log('now check for imagesLoaded...');
-      port.postMessage({from: 'popup', subject: 'check images'});
-    }
+    win.tabs[0].id,
+    {file: 'popup-instructions.js', runAt: 'document_end'},
+    () => port.postMessage({from: 'popup', subject: 'monitorIfUserContinued'})
   );
-};
+}
 
-const updateImageData = function(images) {
+function updateImageData(newImages) {
   if (!imageData.length) {
-    images.forEach(image => {
-      if (image.src != '') {
-        imageData.push(image);
-      }
-    })
+    newImages.forEach(newImage => {
+      imageData.push(newImage);
+    });
   } else {
-    images.forEach(newImage => {
-      imageData.forEach(image => {
-        if (newImage.src != '') {
-          if (newImage.src == image.src) {
-            image.width.push(newImage.width[0]);
-          }
-        }
-      });
+    newImages.forEach((newImage, index) => {
+      imageData[index].width.push(newImage.width[0]);
     });
   }
 
@@ -146,16 +150,23 @@ const updateImageData = function(images) {
   }
 }
 
-const getImageData = function() {
+function getImageData() {
   let dataHtml = '<ul class="results">';
-  imageData.forEach(image => {
+  const filteredImageData = imageData.filter(image => image.src != '');
+  filteredImageData.forEach(image => {
     const sizes = getImageSizes(image.width);
     const srcset = whittleDown(image.width);
+    let srcsetPresent = '<p>[</p>';
+    srcset.map((src, index) => {
+      const comma = index !== srcset.length - 1 ? ',' : '';
+      return srcsetPresent += `<p>&nbsp;&nbsp;{ width: ${src} }${comma}</p>`;
+    });
+    srcsetPresent += '<p>]</p>';
     dataHtml += `<li>
                    <img src="${image.src}">
                    <dl>
                      <dt>srcset value</dt>
-                     <dd><code>${srcset}</code></dd>
+                     <dd><code>${srcsetPresent}</code></dd>
                      <dt>sizes value</dt>
                      <dd>${sizes}</dd>
                    </dl>
@@ -163,17 +174,42 @@ const getImageData = function() {
   });
   dataHtml += '</ul>';
   imageDataSection.innerHTML = dataHtml;
-};
+  const imgs = document.querySelectorAll('.results img');
+  imgs.forEach(img => {
+    img.addEventListener('mouseenter', toggleBiggerImage);
+    img.addEventListener('mouseleave', toggleBiggerImage);
+  });
 
-const getImageSizes = function(widths) {
+  chrome.storage.sync.set({results: imageData}, function() {});
+}
+
+function toggleBiggerImage(event) {
+  const src = event.currentTarget.src;
+  const parent = event.currentTarget.parentNode;
+  if (event.type == 'mouseenter') {
+    const bigImage = document.createElement('img');
+    bigImage.src = src;
+    bigImage.classList.add('bigger-result');
+    parent.classList.add('bigger-visible');
+    parent.appendChild(bigImage);
+  } else if (event.type == 'mouseleave') {
+    if (parent.classList.contains('bigger-visible')) {
+      parent.classList.remove('bigger-visible');
+    }
+    const bigImages = document.querySelectorAll('.bigger-result');
+    bigImages.forEach(image => image.remove());
+  }
+}
+
+function getImageSizes(widths) {
   let returnString = '';
   widths.forEach((width, index) => {
     const breakpoint = Number(breakpoints[index]);
     const em = breakpoint / 16;
     const vw = Math.round((width / breakpoint) * 100);
-    const comma = index == widths.length - 1 ? '' : ', ';
-    returnString += `(max-width: ${em}em) ${vw}${comma}`;
+    returnString += `(max-width: ${em}em) ${vw}vw, `;
   });
+  returnString += `${widths[0]}px`;
   return returnString;
 }
 

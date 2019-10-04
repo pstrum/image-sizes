@@ -1,0 +1,1963 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"pop",
+				"popup-instructions\tscript"
+			],
+			[
+				"filter",
+				"filteredImageData\tconst"
+			],
+			[
+				"continut",
+				"continueBtn\tconst"
+			],
+			[
+				"contin",
+				"continueBtn\tconst"
+			],
+			[
+				"getElement",
+				"getElementById\tmethod"
+			],
+			[
+				"appen",
+				"appendChild\tmethod"
+			],
+			[
+				"instr",
+				"instructionsText\tconst"
+			],
+			[
+				"html",
+				"htmlImgs\tlet"
+			],
+			[
+				"current",
+				"currentValueReturnable\tconst"
+			],
+			[
+				"for",
+				"forobj\tfor … in … loop"
+			],
+			[
+				"menuVisi",
+				"menuVisibleState\tmethod"
+			],
+			[
+				"Render",
+				"Renderer2\talias"
+			],
+			[
+				"anima",
+				"animationSequence\tlocal var"
+			],
+			[
+				"Textu",
+				"TextureCache\twarning"
+			],
+			[
+				"pi",
+				"pixi-tween\tscript"
+			],
+			[
+				"pro",
+				"product-icon\tscript"
+			],
+			[
+				"pixi",
+				"pixi-sprite-utilities\tscript"
+			],
+			[
+				"p",
+				"pixi-sprite-utilities\tscript"
+			],
+			[
+				"Dealer",
+				"DealerLocatorController\tfunction"
+			],
+			[
+				"Deal",
+				"DealerLocatorBlockController\tfunction"
+			],
+			[
+				"getM",
+				"getMediaGalleryThumbnails\talias"
+			],
+			[
+				"initia",
+				"initiateAbImageDrag\talias"
+			],
+			[
+				"wist",
+				"wistia-thumbnail\tscript"
+			],
+			[
+				"jquery",
+				"jquery.mobile.custom\tscript"
+			],
+			[
+				"jqu",
+				"jquery.mobile.custom\tscript"
+			],
+			[
+				"scroll",
+				"scrollToTop\tfunction"
+			],
+			[
+				"jq",
+				"jquery.waypoints\tscript"
+			],
+			[
+				"bui",
+				"builder-sb\tscript"
+			],
+			[
+				"offl",
+				"offlineFetch\tconst"
+			],
+			[
+				"dele",
+				"deleteScripts\talias"
+			],
+			[
+				"querySe",
+				"querySelectorAll\twarning"
+			],
+			[
+				"query",
+				"querySelectorAll\twarning"
+			],
+			[
+				"drop",
+				"dropdownData\tlocal var"
+			],
+			[
+				"extra",
+				"extraPluginCss"
+			],
+			[
+				"queryS",
+				"querySelectorAll\tmethod"
+			],
+			[
+				"inser",
+				"insertAdjacentHTML\tmethod"
+			],
+			[
+				"fly",
+				"flktyDots\tlocal var"
+			],
+			[
+				"paren",
+				"parentNode\twarning"
+			],
+			[
+				"flk",
+				"flktyDots\tlocal var"
+			],
+			[
+				"thumb",
+				"thumbnail\tparameter"
+			],
+			[
+				"carous",
+				"carouselEls\tconst"
+			],
+			[
+				"time",
+				"timelapse\tparameter"
+			],
+			[
+				"timelapse",
+				"timelapseContainers\tconst"
+			],
+			[
+				"getElementsBy",
+				"getElementsByClassName\tmethod"
+			],
+			[
+				"tim",
+				"stopTimer\tmethod"
+			],
+			[
+				"code",
+				"codeStatus\tproperty"
+			],
+			[
+				"level",
+				"levelDetails\tproperty"
+			],
+			[
+				"lev",
+				"levelDetails\tproperty"
+			],
+			[
+				"Number",
+				"NumberToHoursMinutesSeconds\talias"
+			],
+			[
+				"clear",
+				"clearInterval\tfunction"
+			],
+			[
+				"getUt",
+				"getUTCSeconds\tmethod"
+			],
+			[
+				"Ace",
+				"AceEditorDirective\talias"
+			],
+			[
+				"fig",
+				"figcaption\tTag"
+			],
+			[
+				"trans",
+				"translateY()\ttransform"
+			],
+			[
+				"player",
+				"playerOneThumb\tproperty"
+			],
+			[
+				"space",
+				"space-between\tjustify-content"
+			],
+			[
+				"align",
+				"align-items\tproperty"
+			],
+			[
+				"mu",
+				"multiplayerTitle\tconst"
+			],
+			[
+				"style",
+				"styleUrls\tproperty"
+			],
+			[
+				"IModal",
+				"IModalDialogButton\tinterface"
+			],
+			[
+				"imodal",
+				"IModalDialog\tinterface"
+			],
+			[
+				"dropbox_",
+				"DROPBOX_REDIRECT"
+			],
+			[
+				"aur",
+				"authorization_code"
+			],
+			[
+				"D",
+				"DROPBOX_APP_SECRET"
+			],
+			[
+				"Dropbox_",
+				"DROPBOX_APP_KEY"
+			],
+			[
+				"getDrop",
+				"getDropboxToken"
+			],
+			[
+				"DROP",
+				"DROPBOX_APP_KEY"
+			],
+			[
+				"Http",
+				"HttpResponse\talias"
+			],
+			[
+				"imageWar",
+				"imageWarningStyle\tconst"
+			],
+			[
+				"fo",
+				"folderId$\tproperty"
+			],
+			[
+				"s",
+				"setRequestHeader\tmethod"
+			],
+			[
+				"Xml",
+				"XMLHttpRequest\tvar"
+			],
+			[
+				"dialog",
+				"noActivityDialog\tproperty"
+			],
+			[
+				"auto",
+				"autosaveTime\tproperty"
+			],
+			[
+				"gift",
+				"giftVariantsForm\tproperty"
+			],
+			[
+				"re",
+				"refreshStories\tmethod"
+			],
+			[
+				"sn",
+				"snackbarService\tproperty"
+			],
+			[
+				"st",
+				"storyWithErrorNotification\tmethod"
+			],
+			[
+				"ser",
+				"storyService\tproperty"
+			],
+			[
+				"lead",
+				"leadContentHTML\tconst"
+			],
+			[
+				"twitter",
+				"twitter_share_image_asset_id\tproperty"
+			],
+			[
+				"face",
+				"facebook_share_image\tproperty"
+			],
+			[
+				"taxonomy",
+				"taxonomyType\tproperty"
+			],
+			[
+				"taxon",
+				"taxonomyType\tproperty"
+			],
+			[
+				"grid-tem",
+				"grid-template-columns\tproperty"
+			],
+			[
+				"qu",
+				"queueDataSource"
+			],
+			[
+				"Liste",
+				"ListenerSnapshot\talias"
+			],
+			[
+				"lis",
+				"listener-snapshot\tscript"
+			],
+			[
+				"listener",
+				"listener-favorite\tscript"
+			],
+			[
+				"overflow",
+				"overflow-x\tproperty"
+			],
+			[
+				"Activat",
+				"ActivationStart\talias"
+			],
+			[
+				"helath",
+				"healthDataElement\tproperty"
+			],
+			[
+				"healthData",
+				"healthDataHeight\tproperty"
+			],
+			[
+				"import",
+				"import\tkeyword"
+			],
+			[
+				"selecte",
+				"selectedFolder\tproperty"
+			],
+			[
+				"fil",
+				"filtersService\tproperty"
+			],
+			[
+				"campaign",
+				"campaignValue\tproperty"
+			],
+			[
+				"loa",
+				"loadAllAssets\tmethod"
+			],
+			[
+				"transl",
+				"translateY()\ttransform"
+			],
+			[
+				"allow",
+				"allowChipDrag\tproperty"
+			],
+			[
+				"all",
+				"allowChipDrag\tproperty"
+			],
+			[
+				"ch",
+				"checkValidationErrors\tmethod"
+			],
+			[
+				"require",
+				"requiredFieldsArray\tconst"
+			],
+			[
+				"requ",
+				"requiredFieldsArray\tconst"
+			],
+			[
+				"menu",
+				"hideMenu\tproperty"
+			],
+			[
+				"transa",
+				"translateX()\ttransform"
+			],
+			[
+				"read",
+				"reading_depth\tproperty"
+			],
+			[
+				"reading_",
+				"reading_time\tproperty"
+			],
+			[
+				"rea",
+				"reading_time\tproperty"
+			],
+			[
+				"Analys",
+				"AnalyticsSnapshot\talias"
+			],
+			[
+				"aver",
+				"averageListenDepth\tproperty"
+			],
+			[
+				"HttpRep",
+				"HttpErrorResponse\talias"
+			],
+			[
+				"org",
+				"organization-detail\tscript"
+			],
+			[
+				"di",
+				"dialogRef\tproperty"
+			],
+			[
+				"MatDi",
+				"MatDialogRef\talias"
+			],
+			[
+				"mat",
+				"MatDialog\talias"
+			],
+			[
+				"view",
+				"viewSubFoldersOnDragTimeout\tproperty"
+			],
+			[
+				"dropzone",
+				"dropzone-bar-wrapper"
+			],
+			[
+				"conf",
+				"confirmLeavePage\tmethod"
+			],
+			[
+				"lo",
+				"blockLoaded\tproperty"
+			],
+			[
+				"Mat",
+				"MatSnackBarRef\talias"
+			],
+			[
+				"Matsnack",
+				"MatSnackBarRef\tclass"
+			],
+			[
+				"member",
+				"memberForm\tproperty"
+			],
+			[
+				"don",
+				"donation_forms\tproperty"
+			],
+			[
+				"valid",
+				"clearValidators\tmethod"
+			],
+			[
+				"set",
+				"setValidators\tmethod"
+			],
+			[
+				"chang",
+				"statusChanges\tproperty"
+			],
+			[
+				"do",
+				"DonationCampaign\tclass"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "content.js",
+			"settings":
+			{
+				"buffer_size": 1069,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "manifest.json",
+			"settings":
+			{
+				"buffer_size": 699,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "popup.html",
+			"settings":
+			{
+				"buffer_size": 3230,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "popup.js",
+			"settings":
+			{
+				"buffer_size": 7311,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "popup-instructions.js",
+			"settings":
+			{
+				"buffer_size": 2436,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				":w",
+				":w - Save"
+			],
+			[
+				":q",
+				"Set Syntax: SQL"
+			],
+			[
+				"w",
+				"Word Wrap: Toggle"
+			],
+			[
+				"theme",
+				"UI: Select Color Scheme"
+			],
+			[
+				"ui",
+				"UI: Select Color Scheme"
+			],
+			[
+				":e",
+				":e - Revert"
+			],
+			[
+				"sublimelinter pref",
+				"Preferences: SublimeLinter Settings"
+			],
+			[
+				"preferences: sublime",
+				"Preferences: SublimeLinter Settings"
+			],
+			[
+				"preference",
+				"Preferences: Settings"
+			],
+			[
+				"package ",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				":we",
+				":w - Save"
+			],
+			[
+				":",
+				":$ - EOF"
+			],
+			[
+				"list pack",
+				"Package Control: List Packages"
+			],
+			[
+				"set s",
+				"Set Syntax: SCSS"
+			],
+			[
+				"syntas",
+				"Set Syntax: Sass"
+			],
+			[
+				":s",
+				":w - Save"
+			],
+			[
+				"package list",
+				"Package Control: List Packages"
+			],
+			[
+				"package control",
+				"Package Control: Install Package"
+			],
+			[
+				"packages",
+				"Package Control: Install Package"
+			],
+			[
+				"set syn",
+				"Set Syntax: SCSS"
+			],
+			[
+				"set syntax scss",
+				"Set Syntax: SCSS"
+			],
+			[
+				"syntax",
+				"Set Syntax: Sass"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"package remove packaage",
+				"Package Control: Remove Package"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Install Package Control"
+			],
+			[
+				"install package",
+				"Package Control: Install Package"
+			],
+			[
+				"color scheme",
+				"UI: Select Color Scheme"
+			],
+			[
+				"syn",
+				"Set Syntax: Sass"
+			],
+			[
+				"set sy html",
+				"Set Syntax: HTML"
+			],
+			[
+				"commit",
+				"Set Syntax: Git Commit"
+			],
+			[
+				"sysn",
+				"Set Syntax: Sass"
+			],
+			[
+				"sass",
+				"Set Syntax: Sass"
+			],
+			[
+				"theme color",
+				"UI: Select Color Scheme"
+			],
+			[
+				"vmen",
+				"View: Toggle Minimap"
+			],
+			[
+				"usi",
+				"UI: Select Color Scheme"
+			],
+			[
+				"rmove",
+				"Package Control: Remove Package"
+			],
+			[
+				"packages list",
+				"Package Control: List Packages"
+			],
+			[
+				"packag rem",
+				"Package Control: Remove Repository"
+			],
+			[
+				"packag",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"typescript",
+				"Set Syntax: TypeScript"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"packag ins",
+				"Package Control: Install Package"
+			],
+			[
+				"package remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"pack ins",
+				"Package Control: Install Package"
+			],
+			[
+				"package control up",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"listpacka",
+				"Package Control: List Packages"
+			],
+			[
+				"lsit",
+				"Package Control: List Packages"
+			],
+			[
+				"upgrad",
+				"Package Control: Upgrade Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 700.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": true,
+		"show_tabs": false,
+		"side_bar_visible": true,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/peter/projects/image-sizes"
+	],
+	"file_history":
+	[
+		"/Users/peter/projects/image-sizes/background.html",
+		"/Users/peter/projects/image-sizes/background.js",
+		"/Users/peter/projects/image-sizes/content.js",
+		"/Users/peter/projects/image-sizes/imagesLoaded.js",
+		"/Users/peter/projects/image-sizes/popup.html",
+		"/Users/peter/projects/image-sizes/popup.js",
+		"/Users/peter/projects/image-sizes/manifest.json",
+		"/Users/peter/projects/image-sizes/imagesLoadedPkg.js",
+		"/Users/peter/projects/playground/image-sizes.ts",
+		"/Users/peter/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/peter/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Users/peter/.dotfiles/.hammerspoon/init.lua",
+		"/Users/peter/projects/lightart/templates/_blocks/_media_gallery.twig",
+		"/Users/peter/projects/lightart/templates/_atoms/_content_grid_item.twig",
+		"/Users/peter/projects/lightart/templates/_blocks/_quote_carousel.twig",
+		"/Users/peter/projects/web-quit/app/decorators/quit_plan_decorator.rb",
+		"/Users/peter/projects/web-quit/app/views/quit_plans/_step3.html.erb",
+		"/Users/peter/projects/web-quit/spec/decorators/quit_plan_decorator_spec.rb",
+		"/Users/peter/projects/web-quit/app/models/medication.rb",
+		"/Users/peter/projects/web-quit/app/assets/javascripts/lib/FHCRC.WebQuit.MedicationsModule.js",
+		"/Users/peter/projects/web-quit/app/views/quit_plans/show.html.erb",
+		"/Users/peter/projects/web-quit/spec/models/quit_plan_spec.rb",
+		"/Users/peter/projects/web-quit/spec/features/quit_plan_feature_spec.rb",
+		"/Users/peter/projects/web-quit/spec/features/share_feature_spec.rb",
+		"/Users/peter/projects/web-quit/app/views/shares/show.html.erb",
+		"/Users/peter/projects/web-quit/app/views/tracking_days/edit.html.erb",
+		"/Users/peter/projects/web-quit/app/views/questions/index.html.erb",
+		"/Users/peter/projects/web-quit/app/controllers/questions_controller.rb",
+		"/Users/peter/projects/web-quit/app/assets/stylesheets/pages/tracking.css.less",
+		"/Users/peter/projects/web-quit/app/views/layouts/application.html.erb",
+		"/Users/peter/projects/web-quit/app/views/exercise_categories/show.html.erb",
+		"/Users/peter/projects/web-quit/puphpet/puppet/modules/postgresql/manifests/repo/yum_postgresql_org.pp",
+		"/Users/peter/projects/web-quit/db/seeds.rb",
+		"/Users/peter/projects/kuow-admin/src/styles/sticky-header.scss",
+		"/Users/peter/projects/kuow-admin/src/styles/reset.scss",
+		"/Users/peter/projects/kuow-admin/src/styles/component-wrappers.scss",
+		"/Users/peter/projects/kuow-admin/src/index.html",
+		"/Users/peter/projects/kuow-admin/src/app/story-detail/story-detail.component.ts",
+		"/Users/peter/projects/kuow-admin/src/app/blocks/block-text.component.ts",
+		"/Users/peter/projects/kuow-admin/src/app/services/story.service.ts",
+		"/Users/peter/projects/kuow-admin/src/app/app.component.ts",
+		"/Users/peter/projects/kuow-admin/src/app/app.component.html",
+		"/Users/peter/projects/Sound-United-Web/package.json",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/systembuilder/controllers/room-controller.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/systembuilder/views/product-icon.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/systembuilder/services/cart-service.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/systembuilder/services/content-service.js",
+		"/Users/peter/projects/Sound-United-Web/gulpfile.esm.js/offline-sb.js",
+		"/Users/peter/projects/Sound-United-Web/webpack.config.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/inputs/email-validator.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/contentblocks/email-newsletter.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/systembuilder/directives/flickity.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/systembuilder/vendor/pixi.min.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/systembuilder/directives/flyout.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/systembuilder/controllers/loading-controller.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/systembuilder/controllers/animated-question-controller.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/systembuilder/vendor/pixi-sprite-utilities.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/systembuilder/templates/directives/flickity.html",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/commerce/controllers/checkout-controller.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/systembuilder/system-builder.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/systembuilder/templates/questions.html",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/systembuilder/templates/image-question.html",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/commerce/controllers/cart-peek-controller.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/controllers/menu-large.js",
+		"/Users/peter/projects/Sound-United-Web/templates/sb/index.twig",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/systembuilder/controllers/image-question-controller.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/systembuilder/controllers/questions-controller.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/systembuilder/main.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/systembuilder/controllers/app-controller.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/systembuilder/vendor/angular-ui-router.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/systembuilder/services/api-service.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/services/us-states-service.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/systembuilder/routes.js",
+		"/Users/peter/projects/Sound-United-Web/db/migrate/20160906221345_create_system_builder_categories.rb",
+		"/Users/peter/projects/Sound-United-Web/gulpfile.esm.js/scripts.js",
+		"/Users/peter/projects/Sound-United-Web/gulpfile.esm.js/build.js",
+		"/Users/peter/projects/Sound-United-Web/gulpfile.esm.js/builder-sb.js",
+		"/Users/peter/projects/Sound-United-Web/gulpfile.esm.js/index.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/templates/product-grid-ad.html",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/controllers/product-grid-controller.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/app.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/angular-app.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/contentblocks/ui.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/services/api-service.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/systembuilder/vendor/angular.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/systembuilder/directives/set-language.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/systembuilder/services/solution-service.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/systembuilder/services/session-service.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/systembuilder/controllers/sidebar-detail-controller.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/systembuilder/controllers/sidebar-overview-controller.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/systembuilder/controllers/sidebar-controller.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/systembuilder/vendor/rzslider.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/systembuilder/controllers/email-controller.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/commerce/bootstrap.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/contentblocks/carousels/create-carousel.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/promo-popup.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/vendor/cookieconsent.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/vendor/flickity.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/dealer-locator.js",
+		"/Users/peter/projects/Sound-United-Web/templates/_wrapper/_header-full-small.twig",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/inputs/bootstrap-select.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/vendor/bootstrap-select.js",
+		"/Users/peter/projects/Sound-United-Web/templates/dealer_locator.twig",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/templates/dealer-location.html",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/directives/set-language.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/language-redirect.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/contentblocks/product-grid.js",
+		"/Users/peter/projects/Sound-United-Web/templates/_blocks/_product_grid.twig",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/directives/sticky-header.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/sticky-header.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/compare.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/vendor/match-height.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/vendor/js.cookie.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/vendor/throttle-debounce.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/services/Find Results",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/locale.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/commerce/controllers/product-controller.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/contentblocks/carousels/carousels.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/contentblocks/carousels/content-carousel.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/contentblocks/ab-slider.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/contentblocks/promo.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/contentblocks/wistia-thumbnail.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/inputs/password-reveal.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/lazy-load-images.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/contentblocks/wistia-background.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/faq.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/instagram.js",
+		"/Users/peter/projects/Sound-United-Web/src/scripts/account.js"
+	],
+	"find":
+	{
+		"height": 28.0
+	},
+	"find_in_files":
+	{
+		"height": 111.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"updateWindow",
+			"imageData",
+			"showPopupInstructions",
+			"getImageData",
+			"imageDataSection",
+			"getImageData",
+			"updateWindow",
+			"updateImageData",
+			"updateWindow",
+			"imageData",
+			"updateWindow",
+			"updateImageData",
+			"updateWindow",
+			"imageData",
+			"monitorIfUserContinued",
+			"currentWindow",
+			"showPopupInstructions",
+			"win",
+			"console.log",
+			"showPopupInstructions",
+			"userContinueListener",
+			"    () => port.postMessage({from: 'popup', subject: 'userContinueListener'})\n",
+			"userContinueListener",
+			"monitorIfUserContinued",
+			"continueBtn",
+			"ready",
+			"creatPortListener",
+			"port",
+			"showPopupInstructions",
+			"usercontinue",
+			"userContinue",
+			"monitorUserContinue",
+			"instructionsEl",
+			"instructions",
+			"creatPortListener",
+			"showPopupInstructions",
+			"continueBtn",
+			"continueButton",
+			"userContinueListener",
+			"monitorUserContinue",
+			"continueBtn",
+			"imagedata",
+			"creatPortListener",
+			"showPopupInstructions",
+			"creatPortListener",
+			"injectScript",
+			"showPopupInstructions",
+			"injectImagesLoaded",
+			"monitorUserContinue",
+			"continueBtn",
+			"continueButton",
+			"injectScript",
+			"create",
+			"background",
+			"monitorUserContinue",
+			"continueBtn",
+			"continueButton",
+			"instructions",
+			"continueButton",
+			"createContinueBtn",
+			"injectImagesLoaded",
+			"calculateImageData",
+			"images",
+			"boxShadow",
+			"instructionsText",
+			"ShowPageAction",
+			"declarativeContent",
+			"port",
+			"injectScript",
+			"injectImagesLoaded",
+			"default",
+			"getImageSizes",
+			"imageDataSection",
+			"clearBreakpoints",
+			"getImageData",
+			"storage",
+			"getImageData",
+			"srcsetPresent",
+			"whittleDown",
+			"imageData",
+			"image",
+			"images",
+			"forEach",
+			"getImageData",
+			"updateImageData",
+			"calculateImageData",
+			"getImageSizes",
+			"src",
+			"bigImage",
+			"appendChild",
+			"results",
+			"appendChild",
+			"src",
+			"appendChild",
+			"injectImagesLoaded",
+			"updateWindow",
+			"postMessage",
+			"updateWindow",
+			"injectImagesLoaded",
+			"updateWindow",
+			"imagesLoaded",
+			"updateImageData",
+			"instructions",
+			"continueBtn",
+			"postMessage",
+			"body.appendchild",
+			"injectImagesLoaded",
+			"injectScript"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"folders":
+	[
+		{
+			"path": "/Users/peter/projects/image-sizes"
+		}
+	],
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "content.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1069,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								587,
+								587
+							]
+						],
+						"settings":
+						{
+							"SL.1669.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"SL.1694.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"typescript_plugin_format_options":
+							{
+								"convertTabsToSpaces": true,
+								"indentSize": 2,
+								"tabSize": 2
+							},
+							"use_tab_stops": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "manifest.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 699,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								332,
+								332
+							]
+						],
+						"settings":
+						{
+							"SL.1708.region_keys":
+							[
+							],
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "popup.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3230,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3228,
+								3228
+							]
+						],
+						"settings":
+						{
+							"SL.1719.region_keys":
+							[
+							],
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1543.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "popup.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7311,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4073,
+								4073
+							]
+						],
+						"settings":
+						{
+							"SL.1683.region_keys":
+							[
+							],
+							"SL.1695.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"typescript_plugin_format_options":
+							{
+								"convertTabsToSpaces": true,
+								"indentSize": 2,
+								"tabSize": 2
+							},
+							"use_tab_stops": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 260.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 4,
+					"file": "popup-instructions.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2436,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2379,
+								2379
+							]
+						],
+						"settings":
+						{
+							"SL.1675.region_keys":
+							[
+								"SL.eslint.Gutter.|region.redish markup.error.sublime_linter|dot",
+								"sublime_linter.protected_regions",
+								"SL.eslint.Highlights.|87ebbc749e38f85dd9ea0d774293123f0976bd86134f4f0367a3e97ee5f56eb1|region.redish markup.error.sublime_linter|32"
+							],
+							"SL.1696.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"history_list_is_closing": true,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"typescript_plugin_format_options":
+							{
+								"convertTabsToSpaces": true,
+								"indentSize": 2,
+								"tabSize": 2
+							},
+							"use_tab_stops": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 41.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SublimeLinter":
+	{
+		"height": 0.0
+	},
+	"output.SublimeLinter Messages":
+	{
+		"height": 393.0
+	},
+	"output.doc":
+	{
+		"height": 0.0
+	},
+	"output.exec":
+	{
+		"height": 127.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"back",
+				"background.html"
+			],
+			[
+				"manifes",
+				"manifest.json"
+			],
+			[
+				"popupjs",
+				"popup.js"
+			],
+			[
+				"popup",
+				"popup-instructions.js"
+			],
+			[
+				"background",
+				"background.js"
+			],
+			[
+				"cont",
+				"content.js"
+			],
+			[
+				"opup html",
+				"popup.html"
+			],
+			[
+				"content",
+				"content.js"
+			],
+			[
+				"popup.js",
+				"popup.js"
+			],
+			[
+				"quote carous",
+				"templates/_blocks/_quote_carousel.twig"
+			],
+			[
+				"grid twig",
+				"templates/_atoms/_content_grid_item.twig"
+			],
+			[
+				"inspiration",
+				"templates/_blocks/_inspirations_gallery.twig"
+			],
+			[
+				"popu",
+				"popup.html"
+			],
+			[
+				"imag",
+				"imagesLoadedPkg.js"
+			],
+			[
+				"imagesL",
+				"imagesLoaded.js"
+			],
+			[
+				"gallery twig",
+				"templates/_blocks/_media_gallery.twig"
+			],
+			[
+				"quote carouse twig",
+				"templates/_blocks/_quote_carousel.twig"
+			],
+			[
+				"shot html quit",
+				"app/views/quit_plans/show.html.erb"
+			],
+			[
+				"medication",
+				"app/models/medication.rb"
+			],
+			[
+				"posty",
+				"puphpet/puppet/modules/postgresql/manifests/repo/yum_postgresql_org.pp"
+			],
+			[
+				"reset",
+				"src/styles/reset.scss"
+			],
+			[
+				"app component",
+				"src/app/app.component.html"
+			],
+			[
+				"header ",
+				"src/styles/sticky-header.scss"
+			],
+			[
+				"blocktest",
+				"src/app/blocks/block-text.component.ts"
+			],
+			[
+				"story service",
+				"src/app/services/story.service.ts"
+			],
+			[
+				"story detail",
+				"src/app/story-detail/story-detail.component.ts"
+			],
+			[
+				"offline",
+				"gulpfile.esm.js/offline-sb.js"
+			],
+			[
+				"product icon",
+				"src/scripts/systembuilder/views/product-icon.js"
+			],
+			[
+				"package",
+				"package.json"
+			],
+			[
+				"content service",
+				"src/scripts/systembuilder/services/content-service.js"
+			],
+			[
+				"cart serv",
+				"src/scripts/systembuilder/services/cart-service.js"
+			],
+			[
+				"room con",
+				"src/scripts/systembuilder/controllers/room-controller.js"
+			],
+			[
+				"webpack",
+				"webpack.config.js"
+			],
+			[
+				"email valida",
+				"src/scripts/inputs/email-validator.js"
+			],
+			[
+				"email newsletter",
+				"src/scripts/contentblocks/email-newsletter.js"
+			],
+			[
+				"webpackg",
+				"webpack.config.js"
+			],
+			[
+				"room control",
+				"src/scripts/systembuilder/controllers/room-controller.js"
+			],
+			[
+				"pixi",
+				"src/scripts/systembuilder/vendor/pixi.min.js"
+			],
+			[
+				"load",
+				"src/scripts/systembuilder/controllers/loading-controller.js"
+			],
+			[
+				"cartser",
+				"src/scripts/systembuilder/services/cart-service.js"
+			],
+			[
+				"flickity",
+				"src/scripts/systembuilder/directives/flickity.js"
+			],
+			[
+				"room controller",
+				"src/scripts/systembuilder/controllers/room-controller.js"
+			],
+			[
+				"pixi sperite",
+				"src/scripts/systembuilder/vendor/pixi-sprite-utilities.js"
+			],
+			[
+				"animated que",
+				"src/scripts/systembuilder/controllers/animated-question-controller.js"
+			],
+			[
+				"packag",
+				"package.json"
+			],
+			[
+				"systembuild",
+				"src/scripts/systembuilder/system-builder.js"
+			],
+			[
+				"question",
+				"src/scripts/systembuilder/controllers/questions-controller.js"
+			],
+			[
+				"route",
+				"src/scripts/systembuilder/routes.js"
+			],
+			[
+				"questions controller",
+				"src/scripts/systembuilder/controllers/questions-controller.js"
+			],
+			[
+				"routes",
+				"src/scripts/systembuilder/routes.js"
+			],
+			[
+				"webpa",
+				"webpack.config.js"
+			],
+			[
+				"cart controller",
+				"src/scripts/commerce/controllers/cart-peek-controller.js"
+			],
+			[
+				"image question",
+				"src/scripts/systembuilder/templates/image-question.html"
+			],
+			[
+				"imagequestion controller",
+				"src/scripts/systembuilder/controllers/image-question-controller.js"
+			],
+			[
+				"questions.",
+				"src/scripts/systembuilder/templates/questions.html"
+			],
+			[
+				"system",
+				"src/scripts/systembuilder/system-builder.js"
+			],
+			[
+				"system builter",
+				"db/migrate/20160906221345_create_system_builder_categories.rb"
+			],
+			[
+				"api-service",
+				"src/scripts/systembuilder/services/api-service.js"
+			],
+			[
+				"ui-router",
+				"src/scripts/systembuilder/vendor/angular-ui-router.js"
+			],
+			[
+				"app-controll",
+				"src/scripts/systembuilder/controllers/app-controller.js"
+			],
+			[
+				"system build",
+				"src/scripts/systembuilder/system-builder.js"
+			],
+			[
+				"main.js",
+				"src/scripts/systembuilder/main.js"
+			],
+			[
+				"builder sb",
+				"gulpfile.esm.js/builder-sb.js"
+			],
+			[
+				"build",
+				"gulpfile.esm.js/build.js"
+			],
+			[
+				"index",
+				"gulpfile.esm.js/index.js"
+			],
+			[
+				"scripts",
+				"gulpfile.esm.js/scripts.js"
+			],
+			[
+				"scrip",
+				"gulpfile.esm.js/scripts.js"
+			],
+			[
+				"systembuilder",
+				"src/scripts/systembuilder/system-builder.js"
+			],
+			[
+				"we",
+				"webpack.config.js"
+			],
+			[
+				"builder-sb",
+				"gulpfile.esm.js/builder-sb.js"
+			],
+			[
+				"script",
+				"gulpfile.esm.js/scripts.js"
+			],
+			[
+				"build ",
+				"gulpfile.esm.js/builder-sb.js"
+			],
+			[
+				"angular app",
+				"src/scripts/angular-app.js"
+			],
+			[
+				"api serv",
+				"src/scripts/services/api-service.js"
+			],
+			[
+				"bootstra",
+				"src/scripts/commerce/bootstrap.js"
+			],
+			[
+				"builder",
+				"gulpfile.esm.js/builder-sb.js"
+			],
+			[
+				"angular.js",
+				"src/scripts/angular-app.js"
+			],
+			[
+				"app.js",
+				"src/scripts/app.js"
+			],
+			[
+				"ui",
+				"src/scripts/contentblocks/ui.js"
+			],
+			[
+				"product icon view",
+				"src/scripts/systembuilder/views/product-icon.js"
+			],
+			[
+				"rzslider",
+				"src/scripts/systembuilder/vendor/rzslider.js"
+			],
+			[
+				"email controller",
+				"src/scripts/systembuilder/controllers/email-controller.js"
+			],
+			[
+				"set langu",
+				"src/scripts/systembuilder/directives/set-language.js"
+			],
+			[
+				"flyout",
+				"src/scripts/systembuilder/directives/flyout.js"
+			],
+			[
+				"directive flicki",
+				"src/scripts/systembuilder/directives/flickity.js"
+			],
+			[
+				"cart service",
+				"src/scripts/systembuilder/services/cart-service.js"
+			],
+			[
+				"solution service",
+				"src/scripts/systembuilder/services/solution-service.js"
+			],
+			[
+				"sessionser",
+				"src/scripts/systembuilder/services/session-service.js"
+			],
+			[
+				"api ser",
+				"src/scripts/systembuilder/services/api-service.js"
+			],
+			[
+				"sidebar detail conto",
+				"src/scripts/systembuilder/controllers/sidebar-detail-controller.js"
+			],
+			[
+				"overview controll",
+				"src/scripts/systembuilder/controllers/sidebar-overview-controller.js"
+			],
+			[
+				"sidebar controll",
+				"src/scripts/systembuilder/controllers/sidebar-controller.js"
+			],
+			[
+				"loading controller",
+				"src/scripts/systembuilder/controllers/loading-controller.js"
+			],
+			[
+				"animated",
+				"src/scripts/systembuilder/controllers/animated-question-controller.js"
+			],
+			[
+				"image controller",
+				"src/scripts/systembuilder/controllers/image-question-controller.js"
+			],
+			[
+				"emailcontroller",
+				"src/scripts/systembuilder/controllers/email-controller.js"
+			],
+			[
+				"question controller",
+				"src/scripts/systembuilder/controllers/questions-controller.js"
+			],
+			[
+				"app-controller",
+				"src/scripts/systembuilder/controllers/app-controller.js"
+			],
+			[
+				"api-serve",
+				"src/scripts/services/api-service.js"
+			],
+			[
+				"system-builder",
+				"src/scripts/systembuilder/system-builder.js"
+			],
+			[
+				"package json",
+				"package.json"
+			],
+			[
+				"vendor angular",
+				"src/scripts/systembuilder/vendor/angular.js"
+			],
+			[
+				"webpac",
+				"webpack.config.js"
+			],
+			[
+				"product grid ad",
+				"src/scripts/templates/product-grid-ad.html"
+			],
+			[
+				"cookiecon",
+				"src/scripts/vendor/cookieconsent.js"
+			],
+			[
+				"create carou",
+				"src/scripts/contentblocks/carousels/create-carousel.js"
+			],
+			[
+				"pakcag",
+				"package.json"
+			],
+			[
+				"dealer locator",
+				"src/scripts/dealer-locator.js"
+			],
+			[
+				"cart peek",
+				"src/scripts/commerce/controllers/cart-peek-controller.js"
+			],
+			[
+				"web",
+				"webpack.config.js"
+			],
+			[
+				"dealerlocator",
+				"src/scripts/dealer-locator.js"
+			],
+			[
+				"dealer-location.html",
+				"src/scripts/templates/dealer-location.html"
+			],
+			[
+				"dealer",
+				"src/scripts/dealer-locator.js"
+			],
+			[
+				"webp",
+				"webpack.config.js"
+			],
+			[
+				"dealor locator",
+				"src/scripts/dealer-locator.js"
+			],
+			[
+				"product",
+				"src/scripts/controllers/product-grid-controller.js"
+			],
+			[
+				"dealer locat",
+				"src/scripts/dealer-locator.js"
+			],
+			[
+				"ui.js",
+				"src/scripts/contentblocks/ui.js"
+			],
+			[
+				"product-grid",
+				"src/scripts/contentblocks/product-grid.js"
+			],
+			[
+				"sticky",
+				"src/scripts/sticky-header.js"
+			],
+			[
+				"produc gri",
+				"src/scripts/controllers/product-grid-controller.js"
+			],
+			[
+				"find",
+				"Find Results"
+			],
+			[
+				"compare",
+				"src/scripts/compare.js"
+			],
+			[
+				"product grid controller",
+				"src/scripts/controllers/product-grid-controller.js"
+			],
+			[
+				"f",
+				"Find Results"
+			],
+			[
+				"match heigh",
+				"src/scripts/vendor/match-height.js"
+			],
+			[
+				"js.cook",
+				"src/scripts/vendor/js.cookie.js"
+			],
+			[
+				"cookie js",
+				"src/scripts/vendor/js.cookie.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "ligh",
+		"selected_items":
+		[
+			[
+				"ligh",
+				"~/projects/lightart/lightart.sublime-workspace"
+			],
+			[
+				"light",
+				"~/projects/lightart/lightart.sublime-workspace"
+			],
+			[
+				"kuow",
+				"~/projects/kuow-admin/kuow.sublime-workspace"
+			],
+			[
+				"scrit",
+				"~/projects/scritch-admin/scritch.sublime-workspace"
+			],
+			[
+				"scri",
+				"~/projects/scritch-admin/scritch.sublime-workspace"
+			],
+			[
+				"kuo",
+				"~/projects/kuow-admin/kuow.sublime-workspace"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 120.0,
+		"last_filter": "prepar",
+		"selected_items":
+		[
+			[
+				"prepar",
+				"prepareSaveStory"
+			],
+			[
+				"preparesave",
+				"prepareSaveStory"
+			],
+			[
+				"prepare",
+				"prepareSaveStory"
+			]
+		],
+		"width": 592.0
+	},
+	"selected_group": 1,
+	"settings":
+	{
+		"last_automatic_layout":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		]
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 313.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

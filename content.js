@@ -1,33 +1,29 @@
 const port = chrome.runtime.connect();
-const images = document.querySelectorAll('img');
-const imageSizes = calculateImageData(images);
 
-// imagesLoaded(document.querySelectorAll('img'), () => port.postMessage({imagesLoaded: true}));
+port.postMessage({mainScriptInjected: true});
 
 port.onMessage.addListener(msg => {
-  const images = document.querySelectorAll('img');
   if (msg.from == 'popup') {
     switch(msg.subject) {
       case 'getImageData':
+        const images = document.querySelectorAll('img');
         const imageData = calculateImageData(images);
-        console.log(imageData);
-        setTimeout(() => {
-          port.postMessage({imageData: true, images: imageData});
-        }, 500);
+        setTimeout(() => port.postMessage({imageData: true, images: imageData}), 500);
         break;
-      case 'check images':
-        ready(() => {
-          const images = document.querySelectorAll('img');
-          console.log(images);
-          imagesLoaded(images, () => {
-            console.log('all images loaded!')
-            port.postMessage({imagesLoaded: true});
-          });
-        });
-        break;
+      case 'monitorIfUserContinued':
+        monitorIfUserContinued();
     }
   }
 });
+
+function monitorIfUserContinued() {
+  const instructions = document.getElementById('extInstructions');
+  const continueBtn = document.getElementById('continueBtn');
+  continueBtn.addEventListener('click', (event) => {
+    document.body.removeChild(instructions);
+    port.postMessage({userContinued: true});
+  });
+}
 
 function calculateImageData(images) {
   let imageSrcAndWidths = [];
@@ -38,11 +34,4 @@ function calculateImageData(images) {
     });
   });
   return imageSrcAndWidths;
-}
-
-function ready(fn) {
-  document.addEventListener('DOMContentLoaded', fn);
-  if (document.readyState == 'interactive' || document.readyState == 'complete' ) {
-    fn();
-  }
 }

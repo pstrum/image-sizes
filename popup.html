@@ -71,6 +71,7 @@
       }
 
       .results li {
+        position: relative;
         display: flex;
         align-items: flex-start;
       }
@@ -101,6 +102,40 @@
         margin-left: 0;
         margin-bottom: 16px;
       }
+
+      .bigger-visible {
+        overflow: visible;
+      }
+
+      .bigger-visible img {
+        opacity: 0.5;
+      }
+
+      .bigger-visible dl {
+        opacity: 0.5;
+      }
+
+      .bigger-visible .bigger-result {
+        opacity: 1;
+      }
+
+      .bigger-result {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        min-width: 300px;
+        box-shadow: 5px 4px 20px rgba(0, 0, 0, 0.5);
+        border-radius: 12px;
+      }
+
+      code {
+        display: block;
+      }
+
+      code p {
+        margin: 0;
+      }
+
     </style>
   </head>
   <body>
@@ -110,6 +145,7 @@
     <input type="number" id="breakpoints" name="breakpoints">
     <button id="addBreakpoint">Add Breakpoint</button>
     <button id="clearBreakpoints">Remove Breakpoints</button>
+    <button id="clearResults">Remove Previous Results</button>
     <button id="adjustWindowSize">Calculate Sizes</button>
     <code id="imageData"></code>
     <script src="popup.js"></script>
