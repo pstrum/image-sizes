@@ -1,0 +1,14 @@
+/.idea
+/vendor
+.DS_Store
+/node_modules
+/package-lock.json
+/web/assets
+/web/imager
+/web/cpresources
+/yarn.lock
+/composer.lock
+
+# IDEs and editors
+*.sublime-workspace
+*.lock
