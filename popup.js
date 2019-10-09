@@ -4,9 +4,10 @@ const clearBreakpoints = document.getElementById('clearBreakpoints');
 const clearPreviousResults = document.getElementById('clearResults');
 const adjustWindowSize = document.getElementById('adjustWindowSize');
 const imageDataSection = document.getElementById('imageData');
+const breakpointWidth = document.getElementById('breakpointWidth');
 let port = null;
 let currentUrl = null;
-let breakpoints = null;
+let breakpoints = [];
 let imageData = [];
 let currentBreak = 0;
 let currentWindow = null;
@@ -17,32 +18,21 @@ let windowId = null;
 chrome.storage.sync.get('breakpoints', function(data) {
   const nobreakpoints = Object.entries(data).length === 0 && data.constructor === Object;
   if (nobreakpoints) {
-    breakpointData.innerHTML = '<p style="font-style: italic;">no breakpoints</p>';
+    addOneBreakpoint();
   } else {
-    breakpointData.innerHTML = arrayToHtml(data.breakpoints);
-
-    // Set stored breakpoints to variable
+    data.breakpoints.forEach(breakpoint => {
+      const input = addBreakpointInput(breakpoint)
+      breakpointData.appendChild(input);
+    });
     breakpoints = data.breakpoints;
   }
 });
 
-addBreakpoint.onclick = function(element) {
-  const newValue = document.getElementById('breakpoints').value;
-  if (newValue) {
-    if (!breakpoints) {
-      breakpoints = [newValue];
-    } else {
-      breakpoints.push(newValue);
-    }
-    breakpointData.innerHTML = arrayToHtml(breakpoints);
-    chrome.storage.sync.set({breakpoints: breakpoints});
-  }
-}
-
 clearBreakpoints.onclick = function(element) {
   chrome.storage.sync.remove('breakpoints');
   breakpoints = null;
-  breakpointData.innerHTML = '<p>no breakpoints</p>';
+  breakpointData.innerHTML = null;
+  addOneBreakpoint();
 }
 
 clearPreviousResults.onclick = function(element) {
@@ -51,11 +41,90 @@ clearPreviousResults.onclick = function(element) {
   imageDataSection.innerHTML = '<p>no previous data</p>';
 }
 
-function arrayToHtml(arr) {
-  let html = '<ul>';
-  arr.map(item => html += '<li>' + item + 'px</li>');
-  html += '</ul>';
-  return html;
+function updateBreakpointStorage() {
+  const breaks = breakpointData.querySelectorAll('input');
+  breakpoints = [];
+  breaks.forEach(breakpoint => breakpoints.push(breakpoint.value));
+  chrome.storage.sync.set({breakpoints: breakpoints});
+}
+
+function addBreakpointInput(breakpoint) {
+  const wrapper = document.createElement('div');
+  const input = document.createElement('input');
+  const inputPx = document.createElement('span');
+  inputPx.innerText = 'px';
+  inputPx.style.display = 'none';
+  inputPx.style.marginLeft = '-22px';
+  input.type = 'number';
+  input.placeholder = 'add a breakpoint';
+  input.style.width = '128px';
+  addInputListener(input, inputPx);
+
+  if (breakpoint) {
+    input.value = breakpoint;
+    updateInputStyling(input, inputPx);
+  }
+
+  wrapper.appendChild(input);
+  wrapper.appendChild(inputPx);
+  wrapper.appendChild(createDeleteButton());
+  return wrapper;
+}
+
+function createDeleteButton() {
+  const deleteBtn = document.createElement('button');
+  deleteBtn.type = 'button';
+  deleteBtn.classList.add('delete-btn');
+  deleteBtn.innerText = 'remove';
+  deleteBtn.addEventListener('click', event => {
+    const thisNode = event.currentTarget.parentNode;
+    const grandParent = thisNode.parentNode;
+    grandParent.removeChild(thisNode);
+    updateBreakpointStorage();
+  });
+  return deleteBtn;
+}
+
+function updateInputStyling(input, px) {
+  input.style.paddingRight = '22px';
+  breakpointWidth.innerText = input.value;
+  input.style.width = breakpointWidth.clientWidth + 3 + 'px';
+  px.style.display = 'inline-block';
+}
+
+function addInputListener(input, px) {
+  input.addEventListener('input', event => {
+    updateBreakpointStorage();
+    const nextSibling = event.currentTarget.parentNode.nextSibling;
+    if (event.currentTarget.value) {
+      updateInputStyling(event.currentTarget, px);
+
+      if (!nextSibling) {
+        const nextBreakpoint = addBreakpointInput();
+        breakpointData.appendChild(nextBreakpoint);
+      }
+    } else {
+      px.style.display = 'none';
+      input.style.width = '128px';
+      input.style.paddingRight = '0px';
+
+      if (nextSibling) {
+        const nextSiblingInput = nextSibling.querySelector('input');
+        if (!nextSiblingInput.value) {
+          const grandParent = event.currentTarget.parentNode.parentNode;
+          grandParent.removeChild(grandParent.lastChild);
+        }
+      }
+    }
+  });
+
+  px.addEventListener('click', event => firstInput.focus());
+}
+
+function addOneBreakpoint() {
+  const firstInput = addBreakpointInput();
+  breakpointData.appendChild(firstInput);
+  firstInput.querySelector('input').focus();
 }
 
 
@@ -151,7 +220,7 @@ function updateImageData(newImages) {
 }
 
 function getImageData() {
-  let dataHtml = '<ul class="results">';
+  let dataHtml = '<div class="hint"><b>Hint:</b> Hover over images to enlarge them.</div><ul class="results">';
   const filteredImageData = imageData.filter(image => image.src != '');
   filteredImageData.forEach(image => {
     const sizes = getImageSizes(image.width);

@@ -53,7 +53,7 @@
         color: white;
         border-radius: 6px;
         border-width: 0;
-        background-color: rgba(32, 33, 36, 1);
+        background-color: rgba(31, 32, 36, 1);
       }
 
       input:focus {
@@ -128,6 +128,11 @@
         border-radius: 12px;
       }
 
+      .hint {
+        padding-top: 10px;
+        font-family: 'helvetica';
+      }
+
       code {
         display: block;
       }
@@ -136,15 +141,33 @@
         margin: 0;
       }
 
+      .delete-btn {
+        display: inline-block;
+        width: auto;
+        margin-left: 12px;
+        background-color: rgba(255,255,255,.2);
+        font-size: 13px;
+        height: 27px;
+        transition: background ease-in-out 250ms;
+      }
+
+      .delete-btn:hover {
+        color: black;
+        background-color: rgba(255,255,255,.4);
+        transition: background ease-in-out 250ms;
+      }
+
+      #breakpointData > div:last-child .delete-btn {
+        display: none;
+      }
+
     </style>
   </head>
   <body>
     <h2>Your Saved Breakpoints</h2>
     <div id="breakpointData"></div>
-    <label for="breakpoints">Add a Breakpoint</label>
-    <input type="number" id="breakpoints" name="breakpoints">
-    <button id="addBreakpoint">Add Breakpoint</button>
-    <button id="clearBreakpoints">Remove Breakpoints</button>
+    <span id="breakpointWidth" style="visibility: hidden; position: fixed; overflow: auto;"></span>
+    <button id="clearBreakpoints">Remove All Breakpoints</button>
     <button id="clearResults">Remove Previous Results</button>
     <button id="adjustWindowSize">Calculate Sizes</button>
     <code id="imageData"></code>
